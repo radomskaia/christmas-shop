@@ -1,9 +1,9 @@
-@import "_variables.css";
-@import "_typography.css";
+@import "base/_variables.css";
+@import "base/_typography.css";
 @import "_button.css";
-@import "_utils.css";
-@import "_header.css";
-@import "_hero.css";
+@import "base/_utils.css";
+@import "sections/_header.css";
+@import "sections/_hero.css";
 
 /*base*/
 *,
