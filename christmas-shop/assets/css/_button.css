@@ -8,7 +8,7 @@
 }
 
 .btn {
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     background-color: inherit;
     color: inherit;

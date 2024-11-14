@@ -71,3 +71,15 @@ body {
 .slider_text {
     font-size: 8rem;
 }
+
+.tag_green {
+    color: var(--tag_green);
+}
+
+.tag_purple {
+    color: var(--tag_purple);
+}
+
+.tag_pink {
+    color: var(--tag_pink);
+}

@@ -1,0 +1,58 @@
+.card-item {
+    width: 310px;
+    height: 342px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.card-text {
+    padding: 20px;
+    width: 100%;
+    height: 112px;
+    margin-top: auto;
+    color: var(--dark);
+    background-color: var(--static_white);
+    border-radius: var(--border-radius);
+
+    .header_4 {
+        margin-bottom: 8px;
+    }
+}
+
+.card-work {
+    background: url("/img/gift-for-work.png"), var(--content_background);
+
+    .header_4 {
+        color: var(--tag_purple);
+    }
+}
+
+.card-health {
+    background: url("/img/gift-for-health.png"), var(--content_background);
+
+    .header_4 {
+        color: var(--tag_green);
+    }
+}
+
+.card-harmony {
+    background: url("/img/gift-for-harmony.png"), var(--content_background);
+
+    .header_4 {
+        color: var(--tag_pink);
+    }
+}
+
+.card-work,
+.card-health,
+.card-harmony {
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.card-item:hover {
+    .header_3 {
+        color: var(--primary);
+    }
+}

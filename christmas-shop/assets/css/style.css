@@ -6,6 +6,7 @@
 @import "sections/_hero.css";
 @import "sections/_about.css";
 @import "sections/_slider.css";
+@import "sections/_best.css";
 
 /*base*/
 *,
@@ -33,6 +34,6 @@ ul {
 .main {
     max-width: 1440px;
     background-color: var(--primary);
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     overflow: hidden;
 }

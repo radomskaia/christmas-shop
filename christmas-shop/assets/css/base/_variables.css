@@ -11,4 +11,7 @@
     --tag_green: #06A44F;
     --content_background: #ECF3F8;
     --overlay: rgba(24, 28, 41, 0.8);
+
+    /*border*/
+    --border-radius: 20px;
 }

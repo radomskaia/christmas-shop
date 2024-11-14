@@ -1,5 +1,5 @@
 .about-section {
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     color: var(--dark);
     background-color: var(--static_white);
 }
@@ -16,7 +16,7 @@
 .about-section_img {
     width: 50%;
     height: 528px;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     overflow: hidden;
     margin-left: auto;
 
