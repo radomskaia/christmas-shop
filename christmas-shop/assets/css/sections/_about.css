@@ -4,7 +4,7 @@
     background-color: var(--static_white);
 }
 
-.about-section_text-block {
+.about-section_text {
     max-width: 426px;
     margin: 60px;
     gap: 20px;
@@ -14,7 +14,7 @@
     }
 }
 
-.about-section_img-block {
+.about-section_img {
     width: 50%;
     height: 528px;
     border-radius: 20px;
