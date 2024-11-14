@@ -4,6 +4,7 @@
 @import "base/_utils.css";
 @import "sections/_header.css";
 @import "sections/_hero.css";
+@import "sections/_about.css";
 
 /*base*/
 *,
