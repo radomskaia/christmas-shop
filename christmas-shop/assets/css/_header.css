@@ -1,0 +1,19 @@
+.header {
+  max-width: 1440px;
+  justify-content: space-between;
+  padding: 12px 82px;
+}
+
+.logo:link,
+.logo:visited {
+  color: var(--dark);
+  gap: 8px;
+}
+
+.icon-logo {
+  fill: var(--dark);
+}
+
+.nav_list {
+  gap: 8px;
+}

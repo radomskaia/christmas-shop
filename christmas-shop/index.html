@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="Christmas holidays are just around the corner! It's time to shop for gifts...
     but where? Christmas Shop is a cozy place for buying interesting gifts!">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,5 +16,21 @@
 <body>
 <div id="app"></div>
 <script type="module" src="/main.js"></script>
+<header class="header container flex flex--align-center">
+    <a class="logo link flex flex--align-center" href="#">
+        <svg class="icon">
+            <use class="icon-logo" xlink:href="/spritemap.svg#logo"></use>
+        </svg>
+        <p class="action_small">The gifts</p>
+    </a>
+    <nav class="nav">
+        <ul class="nav_list flex flex--align-center">
+            <li class="nav_list--item"><a class="link link_nav action_small" href="gifts/index.html">Gifts</a></li>
+            <li class="nav_list--item"><a class="link link_nav action_small" href="#about">About</a></li>
+            <li class="nav_list--item"><a class="link link_nav action_small" href="#best">Best</a></li>
+            <li class="nav_list--item"><a class="link link_nav action_small" href="footer">Contacts</a></li>
+        </ul>
+    </nav>
+</header>
 </body>
 </html>
