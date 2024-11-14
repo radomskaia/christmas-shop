@@ -1,0 +1,14 @@
+.hero-section {
+    background-image: url("/img/bg-ball.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-section_block {
+    gap: 12px;
+    align-items: center;
+    padding-block: 60px;
+    max-width: 426px;
+    text-align: center;
+    margin: 0 auto;
+}
