@@ -14,4 +14,8 @@
 
     /*border*/
     --border-radius: 20px;
+
+    /*width*/
+    --width-container: 1440px;
+    --width-text: 426px;
 }

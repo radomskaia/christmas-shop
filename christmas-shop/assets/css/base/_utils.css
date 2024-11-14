@@ -31,6 +31,10 @@
     gap: 12px;
 }
 
+.flex_gap-8 {
+    gap: 8px;
+}
+
 .bg-snow {
     background-image: url("/img/bg-snow.png");
     background-size: cover;

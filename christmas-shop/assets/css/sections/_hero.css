@@ -1,6 +1,5 @@
 .hero-section {
     position: relative;
-    background-position-y: -38px;
     z-index: 1;
 }
 
@@ -20,7 +19,7 @@
 .hero-section_block {
     align-items: center;
     padding-block: 60px;
-    max-width: 426px;
+    max-width: var(--width-text);
     text-align: center;
     margin: 0 auto;
 }

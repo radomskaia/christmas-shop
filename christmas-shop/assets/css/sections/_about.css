@@ -5,7 +5,7 @@
 }
 
 .about-section_text {
-    max-width: 426px;
+    max-width: var(--width-text);
     margin: 60px;
 
     .caption {

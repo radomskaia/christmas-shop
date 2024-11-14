@@ -7,6 +7,7 @@
 @import "sections/_about.css";
 @import "sections/_slider.css";
 @import "sections/_best.css";
+@import "sections/_cta.css";
 
 /*base*/
 *,
@@ -32,7 +33,7 @@ ul {
 }
 
 .main {
-    max-width: 1440px;
+    max-width: var(--width-container);
     background-color: var(--primary);
     border-radius: var(--border-radius);
     overflow: hidden;

@@ -15,14 +15,14 @@
 </head>
 <body>
 <header class="header container flex flex--align-center">
-    <a class="logo link flex flex--align-center" href="#">
+    <a class="logo link flex flex--align-center flex_gap-8" href="#">
         <svg class="icon">
             <use class="icon-logo" xlink:href="/spritemap.svg#logo"></use>
         </svg>
         <p class="action_small">The gifts</p>
     </a>
     <nav class="nav">
-        <ul class="nav_list flex flex--align-center">
+        <ul class="nav_list flex flex--align-center flex_gap-8">
             <li class="nav_list--item"><a class="link link_nav action_small" href="gifts/index.html">Gifts</a></li>
             <li class="nav_list--item"><a class="link link_nav action_small" href="#about">About</a></li>
             <li class="nav_list--item"><a class="link link_nav action_small" href="#best">Best</a></li>
@@ -103,7 +103,6 @@
             </div>
         </div>
     </section>
-
     <section class="bg-snow container-section" id="best">
         <div class="flex flex--column flex_gap-20">
             <div class="flex flex--column flex--align-center flex_gap-12">
@@ -136,6 +135,33 @@
                     </div>
                 </li>
             </ul>
+        </div>
+    </section>
+    <section class="cta-section bg-snow container-section">
+        <div class="cta-section_block flex flex--column flex--align-center flex_gap-20">
+            <h2 class="header_2">Ready to start your journey to a better version of yourself?</h2>
+            <a class="btn btn_primary" href="gifts/index.html">Explore Magical Gifts</a>
+            <div class="timer_box flex flex--column flex--align-center flex_gap-8">
+                <p class="caption">The New Year is Coming Soon...</p>
+                <ul class="timer flex flex--center">
+                    <li class="timer-items flex flex--column flex--align-center">
+                        <p class="timer-items_number header_2">47</p>
+                        <p class="timer-items_text header_4">days</p>
+                    </li>
+                    <li class="timer-items timer-hours flex flex--column flex--align-center">
+                        <p class="timer-items_number header_2">5</p>
+                        <p class="timer-items_text header_4">hours</p>
+                    </li>
+                    <li class="timer-items timer-min flex flex--column flex--align-center">
+                        <p class="timer-items_number header_2">34</p>
+                        <p class="timer-items_text header_4">minutes</p>
+                    </li>
+                    <li class="timer-items timer-sec flex flex--column flex--align-center">
+                        <p class="timer-items_number header_2">12</p>
+                        <p class="timer-items_text header_4">seconds</p>
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 </main>
