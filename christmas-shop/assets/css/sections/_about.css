@@ -7,7 +7,6 @@
 .about-section_text {
     max-width: 426px;
     margin: 60px;
-    gap: 20px;
 
     .caption {
         color: var(--primary);

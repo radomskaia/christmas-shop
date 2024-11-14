@@ -5,6 +5,7 @@
 @import "sections/_header.css";
 @import "sections/_hero.css";
 @import "sections/_about.css";
+@import "sections/_slider.css";
 
 /*base*/
 *,
@@ -33,4 +34,5 @@ ul {
     max-width: 1440px;
     background-color: var(--primary);
     border-radius: 20px;
+    overflow: hidden;
 }

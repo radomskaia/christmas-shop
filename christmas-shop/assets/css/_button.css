@@ -33,24 +33,28 @@
 }
 
 .btn_arrow {
-    border: var(--static_white);
+    border-color: var(--static_white);
+    width: 56px;
+    height: 56px;
 }
 
 .btn_arrow:hover,
-.btn_top {
+.btn_up {
     background-color: var(--static_white);
     color: var(--primary);
 }
 
-.btn_arrow:disabled {
-    border: var(--static_white_40);
+.btn_arrow:disabled,
+.btn_arrow:disabled:hover {
+    border-color: var(--static_white_40);
+    background-color: transparent;
     color: var(--static_white_40);
     cursor: auto;
 }
 
 .btn_up {
     border-radius: 50%;
-    border: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn_tab,

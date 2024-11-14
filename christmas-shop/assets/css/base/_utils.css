@@ -18,6 +18,19 @@
     align-items: center;
 }
 
+.flex--center {
+    align-items: center;
+    justify-content: center;
+}
+
+.flex_gap-20 {
+    gap: 20px;
+}
+
+.flex_gap-12 {
+    gap: 12px;
+}
+
 .bg-snow {
     background-image: url("/img/bg-snow.png");
     background-size: cover;
