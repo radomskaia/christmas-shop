@@ -1,22 +1,35 @@
 @import "_variables.css";
 @import "_typography.css";
 @import "_button.css";
+@import "_utils.css";
+@import "_header.css";
+@import "_hero.css";
 
 /*base*/
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 a:link,
 a:visited {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.main {
+    max-width: 1440px;
+    background-color: var(--primary);
+    border-radius: 20px;
 }

@@ -46,6 +46,7 @@ body {
     font-size: 2.4rem;
     font-weight: 400;
     letter-spacing: calc(2.4rem*0.05);
+    text-transform: none;
 }
 
 .slider_text {

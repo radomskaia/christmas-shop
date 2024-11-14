@@ -4,6 +4,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.2s ease-in-out;
 }
 
 .btn {
@@ -47,7 +48,7 @@
     cursor: auto;
 }
 
-.btn_top {
+.btn_up {
     border-radius: 50%;
     border: var(--primary);
 }
@@ -112,4 +113,9 @@
     & .btn_burger::after {
         transform: translate(-50%, 50%) rotate(-45deg);
     }
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
 }

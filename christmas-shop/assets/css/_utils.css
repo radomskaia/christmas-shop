@@ -1,0 +1,25 @@
+.container {
+    margin: 0 auto;
+}
+
+.container-section {
+    padding: 60px 82px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex--column {
+    flex-direction: column;
+}
+
+.flex--align-center {
+    align-items: center;
+}
+
+.bg-snow {
+    background-image: url("/img/bg-snow.png");
+    background-size: cover;
+    background-position: center;
+}
