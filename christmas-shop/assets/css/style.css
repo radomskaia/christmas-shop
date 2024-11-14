@@ -1,0 +1,22 @@
+@import "_variables.css";
+@import "_typography.css";
+@import "_button.css";
+
+/*base*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
