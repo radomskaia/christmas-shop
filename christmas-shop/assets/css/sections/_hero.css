@@ -19,7 +19,7 @@
 .hero-section_block {
     align-items: center;
     padding-block: 60px;
-    max-width: var(--width-text);
+    max-width: calc(var(--width-text) + 3px);
     text-align: center;
     margin: 0 auto;
 }

@@ -21,6 +21,11 @@
     }
 }
 
+.social .link_footer {
+    width: 40px;
+    height: 40px;
+}
+
 .link_footer:hover,
 .link_footer:active {
     color: var(--primary);

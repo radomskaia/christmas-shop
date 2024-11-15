@@ -4,12 +4,12 @@
   padding: 12px 82px;
 }
 
+.logo {
+  padding: 8px 20px;
+}
+
 .logo:link,
 .logo:visited {
   color: var(--dark);
-}
-
-.icon-logo {
-  fill: var(--dark);
 }
 
