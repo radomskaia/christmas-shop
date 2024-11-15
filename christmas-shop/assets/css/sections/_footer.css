@@ -1,0 +1,31 @@
+.footer {
+    max-width: var(--width-container);
+    color: var(--dark);
+    width: 100%;
+    gap: 60px;
+}
+
+.contacts-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+}
+
+.contacts-item {
+    background: var(--content_background);
+    border-radius: var(--border-radius);
+    padding: 20px;
+
+    .link_footer {
+        width: 100%;
+    }
+}
+
+.link_footer:hover,
+.link_footer:active {
+    color: var(--primary);
+
+    path {
+        stroke: var(--primary);
+    }
+}
