@@ -1,4 +1,5 @@
 .btn,
+.link,
 .link:visited,
 .link:link {
     display: inline-flex;
@@ -12,6 +13,7 @@
     cursor: pointer;
     background-color: inherit;
     color: inherit;
+     font-family: inherit;
 }
 
 .btn_primary,
@@ -27,9 +29,13 @@
     color: var(--dark);
 }
 
+.btn_tab,
+.btn_square {
+    border: solid 1px transparent;
+}
+
 .btn_square {
     padding: 16px;
-    border: solid 1px transparent;
 }
 
 .btn_arrow {
@@ -57,16 +63,27 @@
     border-color: var(--primary);
 }
 
-.btn_tab,
+
+.link_nav,
 .link_nav:visited,
 .link_nav:link {
     padding: 12px 20px;
     border-radius: 12px;
 }
 
+.btn_tab {
+    padding: 11px 19px;
+    border-radius: 12px;
+}
+
 .btn_tab:hover,
 .btn_tab--active {
+    border: solid 1px var(--static_white_20);
     background-color: var(--static_white_20);
+}
+
+.btn_tab.action_small {
+    text-transform: uppercase;
 }
 
 .link_nav:visited,
@@ -74,6 +91,7 @@
     color: var(--dark);
 }
 
+.link_nav_active,
 .link_nav:hover,
 .link_nav:active {
     background-color: var(--primary_10);

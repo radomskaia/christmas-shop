@@ -23,6 +23,10 @@
     justify-content: center;
 }
 
+.flex--wrap {
+    flex-wrap: wrap;
+}
+
 .flex_gap-20 {
     gap: 20px;
 }
@@ -39,4 +43,11 @@
     background-image: url("/img/bg-snow.png");
     background-size: cover;
     background-position: center;
+}
+
+.bg-garland {
+    background-image: url("/img/bg-garland.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
 }
