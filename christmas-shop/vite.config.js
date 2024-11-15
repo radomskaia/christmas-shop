@@ -5,8 +5,9 @@ import {resolve} from 'path'
 import {defineConfig} from 'vite'
 
 export default defineConfig({
-    base: 'radomskaia-JSFE2024Q4/christmas-shop',
+    base: '/radomskaia-JSFE2024Q4/christmas-shop',
     build: {
+        sourcemap: true,
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
