@@ -12,7 +12,8 @@
     width: 100%;
     height: 100%;
     background-size: cover;
-    background: url("/img/bg-forest.png") top;
+    background: url("/img/bg-forest.png");
+    background-position: top;
     z-index: -1;
 }
 
