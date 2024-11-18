@@ -30,3 +30,22 @@
         display: inline-flex;
     }
 }
+
+/*640px*/
+@media only screen and (max-width: 40em) {
+    .about-section.flex {
+        flex-direction: column;
+    }
+
+    .about-section_text {
+    max-width: 100%;
+    margin-inline: 20px;
+}
+    .about-section_img {
+        width: 100%
+    }
+
+    .cta-section_block {
+        padding-inline: 0;
+    }
+}

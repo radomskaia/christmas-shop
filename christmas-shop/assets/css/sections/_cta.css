@@ -2,7 +2,6 @@
     position: relative;
     z-index: 1;
     padding-block: 120px;
-    max-height: 668px;
 }
 
 .cta-section::before {
