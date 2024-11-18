@@ -68,6 +68,12 @@
     border-radius: 12px;
 }
 
+.btn_tab:disabled {
+    cursor: auto;
+    border: solid 1px var(--static_white_20);
+    background-color: var(--static_white_20);
+}
+
 .btn_tab.action_small {
     text-transform: uppercase;
 }
@@ -148,8 +154,7 @@
         cursor: auto;
     }
 
-    .btn_tab:hover,
-    .btn_tab--active {
+    .btn_tab:hover {
         border: solid 1px var(--static_white_20);
         background-color: var(--static_white_20);
     }
