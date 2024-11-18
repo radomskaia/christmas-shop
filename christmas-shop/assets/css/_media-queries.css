@@ -1,0 +1,32 @@
+/*1250px*/
+@media only screen and (max-width: 78em) {
+    .card-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .contacts-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*976px*/
+@media only screen and (max-width: 61em) {
+    .container-section,
+    .header {
+        padding-inline: 8px;
+    }
+
+
+}
+
+/*768px*/
+@media only screen and (max-width: 48em) {
+    .nav {
+        display: none;
+    }
+
+    .btn_burger {
+        display: inline-flex;
+    }
+}

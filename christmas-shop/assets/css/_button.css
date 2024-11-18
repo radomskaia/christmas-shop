@@ -99,6 +99,8 @@
 }
 
 .btn_burger {
+    display: none;
+    border: none;
     width: 40px;
     height: 40px;
     position: relative;
@@ -112,7 +114,7 @@
     background-color: var(--dark);
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
 }
 
 .btn_burger::before {
