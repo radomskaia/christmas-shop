@@ -14,10 +14,11 @@
 .contacts-item {
     background: var(--content_background);
     border-radius: var(--border-radius);
-    padding: 20px;
+
 
     .link_footer {
         width: 100%;
+        padding: 20px;
     }
 }
 

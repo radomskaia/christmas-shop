@@ -36,7 +36,7 @@ ul {
 
 .main {
     max-width: var(--width-container);
-    background-color: var(--primary);
+    background-image: linear-gradient(to bottom, var(--primary) 0 99.9%, transparent);
     border-radius: var(--border-radius);
     overflow: hidden;
 }
