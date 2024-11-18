@@ -16,8 +16,6 @@
     .header {
         padding-inline: 8px;
     }
-
-
 }
 
 /*768px*/
@@ -48,4 +46,14 @@
     .cta-section_block {
         padding-inline: 0;
     }
+
+    .tabs-list {
+        gap: 0;
+    }
+
+    .btn_tab {
+        padding-inline: 7px;
+    }
 }
+
+

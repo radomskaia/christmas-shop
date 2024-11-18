@@ -57,8 +57,10 @@
     }
 }
 
-.card-item:hover {
-    .header_3 {
-        color: var(--primary);
+@media (hover: hover) {
+    .card-item:hover {
+        .header_3 {
+            color: var(--primary);
+        }
     }
 }

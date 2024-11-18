@@ -13,7 +13,7 @@
     cursor: pointer;
     background-color: inherit;
     color: inherit;
-     font-family: inherit;
+    font-family: inherit;
 }
 
 .btn_primary,
@@ -21,12 +21,6 @@
 .btn_primary:visited {
     padding: 20px 32px;
     background-color: var(--dark);
-}
-
-.btn_primary:hover,
-.btn_primary:active {
-    background-color: var(--static_white);
-    color: var(--dark);
 }
 
 .btn_tab,
@@ -44,14 +38,12 @@
     height: 56px;
 }
 
-.btn_arrow:hover,
 .btn_up {
     background-color: var(--static_white);
     color: var(--primary);
 }
 
-.btn_arrow:disabled,
-.btn_arrow:disabled:hover {
+.btn_arrow:disabled {
     border-color: var(--static_white_40);
     background-color: transparent;
     color: var(--static_white_40);
@@ -76,12 +68,6 @@
     border-radius: 12px;
 }
 
-.btn_tab:hover,
-.btn_tab--active {
-    border: solid 1px var(--static_white_20);
-    background-color: var(--static_white_20);
-}
-
 .btn_tab.action_small {
     text-transform: uppercase;
 }
@@ -91,9 +77,7 @@
     color: var(--dark);
 }
 
-.link_nav_active,
-.link_nav:hover,
-.link_nav:active {
+.link_nav_active {
     background-color: var(--primary_10);
     color: var(--primary);
 }
@@ -134,6 +118,7 @@
     & .btn_burger::before {
         transform: translate(-50%, 50%) rotate(45deg);
     }
+
     & .btn_burger::after {
         transform: translate(-50%, 50%) rotate(-45deg);
     }
@@ -142,4 +127,36 @@
 .icon {
     width: 24px;
     height: 24px;
+}
+
+@media (hover: hover) {
+    .btn_primary:hover,
+    .btn_primary:active {
+        background-color: var(--static_white);
+        color: var(--dark);
+    }
+
+    .btn_arrow:hover {
+        background-color: var(--static_white);
+        color: var(--primary);
+    }
+
+    .btn_arrow:disabled:hover {
+        border-color: var(--static_white_40);
+        background-color: transparent;
+        color: var(--static_white_40);
+        cursor: auto;
+    }
+
+    .btn_tab:hover,
+    .btn_tab--active {
+        border: solid 1px var(--static_white_20);
+        background-color: var(--static_white_20);
+    }
+
+    .link_nav:hover,
+    .link_nav:active {
+        background-color: var(--primary_10);
+        color: var(--primary);
+    }
 }

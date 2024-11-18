@@ -25,6 +25,7 @@
 
 .flex--wrap {
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .flex_gap-20 {
