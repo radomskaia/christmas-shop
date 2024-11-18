@@ -27,6 +27,12 @@
     height: 40px;
 }
 
+ .link_footer {
+        path {
+            transition: all 0.2s;
+        }
+    }
+
 .link_footer:hover,
 .link_footer:active {
     color: var(--primary);

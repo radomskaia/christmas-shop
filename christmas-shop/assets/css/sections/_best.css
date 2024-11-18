@@ -51,6 +51,12 @@
     background-repeat: no-repeat;
 }
 
+.card-item {
+    .header_3 {
+        transition: all 0.2s;
+    }
+}
+
 .card-item:hover {
     .header_3 {
         color: var(--primary);
