@@ -20,8 +20,46 @@
 
 /*768px*/
 @media only screen and (max-width: 48em) {
+    html {
+        overflow-x: hidden;
+    }
+    /*.main {*/
+    /*    position: relative;*/
+    /*}*/
     .nav {
-        display: none;
+        display: flex;
+        position: absolute;
+        top: 64px;
+        left: 101%;
+
+        background: var(--static_white);
+        z-index: 999;
+        width: 100%;
+        height: calc(100vh - 64px);
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+        visibility: hidden;
+
+        transition: all 0.3s;
+
+        .nav_list {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .action_small {
+                font-size: 2.4rem;
+                letter-spacing: 0.16em;
+                line-height: 1.52;
+            }
+        }
+    }
+
+    .btn_burger--active ~ .nav {
+        pointer-events: auto;
+        visibility: visible;
+        left: 0;
     }
 
     .btn_burger {
@@ -36,9 +74,10 @@
     }
 
     .about-section_text {
-    max-width: 100%;
-    margin-inline: 20px;
-}
+        max-width: 100%;
+        margin-inline: 20px;
+    }
+
     .about-section_img {
         width: 100%
     }
