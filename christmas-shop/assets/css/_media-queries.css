@@ -35,7 +35,7 @@
         background: var(--static_white);
         z-index: 999;
         width: 100%;
-        height: calc(100vh - 64px);
+        height: calc(100dvh - 64px);
         justify-content: center;
         align-items: center;
         pointer-events: none;

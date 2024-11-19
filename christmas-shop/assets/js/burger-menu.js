@@ -6,6 +6,8 @@ function switchMobileNav() {
 
     if (burgerBtn.classList.contains("btn_burger--active")) {
         document.documentElement.style.overflow = "hidden"
+        nav.style.height = `calc(100dvh - 64px + ${window.scrollY}px)`
+
     } else {
         document.documentElement.style.overflow = "";
     }
@@ -17,7 +19,6 @@ function checkScreenWidth() {
         burgerBtn.classList.remove("btn_burger--active");
     }
 }
-
 
 export function burgerMenu() {
     burgerBtn.addEventListener("click", switchMobileNav);
