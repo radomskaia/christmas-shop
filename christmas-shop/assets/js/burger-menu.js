@@ -1,3 +1,6 @@
+import {getScreenWidth} from "./utils.js";
+
+const TABLET_WIDTH = 768;
 const burgerBtn = document.querySelector(".btn_burger");
 const nav = document.querySelector(".nav");
 
@@ -13,10 +16,10 @@ function switchMobileNav() {
     }
 }
 
-function checkScreenWidth() {
-    const screenWidth = document.documentElement.clientWidth;
-    if (screenWidth > 768) {
+function closeMobileNavDesktop() {
+    if (getScreenWidth() > TABLET_WIDTH) {
         burgerBtn.classList.remove("btn_burger--active");
+        nav.style.height = ``
     }
 }
 
@@ -27,5 +30,5 @@ export function burgerMenu() {
             switchMobileNav();
         }
     });
-    window.addEventListener('resize', checkScreenWidth)
+    window.addEventListener('resize', closeMobileNavDesktop)
 }
