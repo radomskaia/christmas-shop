@@ -9,9 +9,8 @@ const NORMAL_PADDING = 82;
 
 const sliderEl = document.querySelector('.slider');
 const [leftBtn, rightBtn] = document.querySelectorAll('.btn_arrow');
-let maxOffset, sliderOffset = 0;
+let sliderOffset = 0;
 let btnDisabled = 'left';
-
 
 function getClickAmount(screenWidth) {
     if (screenWidth > TABLET_WIDTH) {
@@ -29,16 +28,15 @@ function getPadding(screenWidth) {
     return SMALL_PADDING;
 }
 
-function changeMaxOffset() {
-    maxOffset = sliderEl.scrollWidth - sliderEl.clientWidth;
+function getMaxOffset() {
+    return sliderEl.scrollWidth - sliderEl.clientWidth;
 }
 
-function getSliderOffsetStep() {
+function getSliderOffsetStep(maxOffset) {
     let screenWidth = getScreenWidth();
     let padding = getPadding(screenWidth);
     let clickAmount = getClickAmount(screenWidth);
 
-    changeMaxOffset()
     return (maxOffset + padding) / clickAmount;
 }
 
@@ -73,7 +71,9 @@ function moveSlider() {
         setButtonDisabled(directionSettings[btnDisabled].btn, false)
     }
 
-    sliderOffset += getSliderOffsetStep() * directionSettings[direction].multiplier;
+    let maxOffset = getMaxOffset();
+
+    sliderOffset += getSliderOffsetStep(maxOffset) * directionSettings[direction].multiplier;
 
     if (sliderOffset >= 0) {
         sliderOffset = 0;
@@ -89,7 +89,7 @@ function moveSlider() {
 }
 
 function handleResize() {
-    changeMaxOffset()
+     let maxOffset = getMaxOffset();
 
     if (sliderOffset <= -maxOffset) {
         setButtonDisabled(rightBtn, true, 'right')
