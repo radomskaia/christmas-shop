@@ -6,10 +6,12 @@
 @import "sections/_hero.css";
 @import "sections/_about.css";
 @import "sections/_slider.css";
-@import "sections/_best.css";
+@import "_card.css";
+@import "_modal.css";
 @import "sections/_cta.css";
 @import "sections/_footer.css";
 @import "sections/_gifts-page.css";
+@import "_media-queries.css";
 
 /*base*/
 *,

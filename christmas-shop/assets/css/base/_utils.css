@@ -25,6 +25,7 @@
 
 .flex--wrap {
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .flex_gap-20 {
@@ -37,6 +38,18 @@
 
 .flex_gap-8 {
     gap: 8px;
+}
+
+.margin_bottom-8 {
+    margin-bottom: 8px;
+}
+
+.margin_right-auto {
+    margin-right: auto;
+}
+
+.display-none {
+    display: none;
 }
 
 .bg-snow {

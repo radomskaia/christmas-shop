@@ -33,11 +33,13 @@
         }
     }
 
-.link_footer:hover,
-.link_footer:active {
-    color: var(--primary);
+ @media (hover: hover) {
+     .link_footer:hover,
+     .link_footer:active {
+         color: var(--primary);
 
-    path {
-        stroke: var(--primary);
-    }
-}
+         path {
+             stroke: var(--primary);
+         }
+     }
+ }

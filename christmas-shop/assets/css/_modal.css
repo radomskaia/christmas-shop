@@ -1,0 +1,46 @@
+.modal {
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    background: var(--content_background);
+    border: none;
+    max-width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    z-index: 999;
+}
+
+.modal::backdrop {
+    background: var(--overlay);
+}
+
+.modal[open] {
+    opacity: 1;
+}
+
+.modal-text {
+    padding: 20px;
+    color: var(--dark);
+    background-color: var(--static_white);
+    border-radius: var(--border-radius);
+}
+
+.modal-info {
+    margin-bottom: 20px;
+}
+
+.modal-bg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.modal_btn {
+    position: absolute;
+    border-radius: 0;
+    top: 12px;
+    right: 12px;
+}

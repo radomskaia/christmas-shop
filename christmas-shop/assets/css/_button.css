@@ -13,7 +13,7 @@
     cursor: pointer;
     background-color: inherit;
     color: inherit;
-     font-family: inherit;
+    font-family: inherit;
 }
 
 .btn_primary,
@@ -23,46 +23,41 @@
     background-color: var(--dark);
 }
 
-.btn_primary:hover,
-.btn_primary:active {
-    background-color: var(--static_white);
-    color: var(--dark);
-}
-
-.btn_tab,
+.btn_to-top,
 .btn_square {
     border: solid 1px transparent;
 }
 
 .btn_square {
-    padding: 16px;
+    /*padding: 16px;*/
 }
 
 .btn_arrow {
     border-color: var(--static_white);
+}
+
+.btn_to-top,
+.btn_arrow {
     width: 56px;
     height: 56px;
 }
 
-.btn_arrow:hover,
-.btn_up {
+.btn_to-top {
+    position: fixed;
+    right: 8px;
+    bottom: 8px;
     background-color: var(--static_white);
     color: var(--primary);
+    border-radius: 50%;
+    border-color: 1px solid var(--primary);
 }
 
-.btn_arrow:disabled,
-.btn_arrow:disabled:hover {
+.btn_arrow:disabled {
     border-color: var(--static_white_40);
     background-color: transparent;
     color: var(--static_white_40);
     cursor: auto;
 }
-
-.btn_up {
-    border-radius: 50%;
-    border-color: var(--primary);
-}
-
 
 .link_nav,
 .link_nav:visited,
@@ -72,13 +67,12 @@
 }
 
 .btn_tab {
-    padding: 11px 19px;
+    padding: 12px 20px;
     border-radius: 12px;
 }
 
-.btn_tab:hover,
-.btn_tab--active {
-    border: solid 1px var(--static_white_20);
+input:checked ~ .btn_tab {
+    cursor: auto;
     background-color: var(--static_white_20);
 }
 
@@ -91,29 +85,54 @@
     color: var(--dark);
 }
 
-.link_nav_active,
-.link_nav:hover,
-.link_nav:active {
+.link_nav_active {
     background-color: var(--primary_10);
     color: var(--primary);
 }
 
-.btn_burger {
+.btn_burger,
+.modal_btn {
+    border: none;
     width: 40px;
     height: 40px;
     position: relative;
 }
 
+.btn_burger {
+    display: none;
+}
+
+.modal_btn::before,
+.modal_btn::after,
 .btn_burger::before,
 .btn_burger::after {
     content: '';
-    width: 20px;
     height: 2px;
     background-color: var(--dark);
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 50%) rotate(0deg);
+    transition: all 0.3s ease-in-out;
 }
+
+.btn_burger::before,
+.btn_burger::after {
+    width: 20px;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.modal_btn::before,
+.modal_btn::after {
+    width: 28.28px;
+}
+
+.modal_btn::before {
+    transform: translate(-50%, 50%) rotate(45deg);
+}
+
+.modal_btn::after {
+    transform: translate(-50%, 50%) rotate(-45deg);
+}
+
 
 .btn_burger::before {
     top: 16px;
@@ -123,21 +142,53 @@
     top: 24px;
 }
 
+.modal_btn,
 .btn_burger--active {
-    & .btn_burger::before,
-    & .btn_burger::after {
+    &.btn_burger::before,
+    &.btn_burger::after {
         top: 50%;
     }
 
-    & .btn_burger::before {
-        transform: translate(-50%, 50%) rotate(45deg);
+    &.btn_burger::before {
+        transform: translate(-50%, 50%) rotate(225deg);
     }
-    & .btn_burger::after {
-        transform: translate(-50%, 50%) rotate(-45deg);
+
+    &.btn_burger::after {
+        transform: translate(-50%, 50%) rotate(-225deg);
     }
 }
 
 .icon {
     width: 24px;
     height: 24px;
+}
+
+@media (hover: hover) {
+    .btn_primary:hover,
+    .btn_primary:active {
+        background-color: var(--static_white);
+        color: var(--dark);
+    }
+
+    .btn_arrow:hover {
+        background-color: var(--static_white);
+        color: var(--primary);
+    }
+
+    .btn_arrow:disabled:hover {
+        border-color: var(--static_white_40);
+        background-color: transparent;
+        color: var(--static_white_40);
+        cursor: auto;
+    }
+
+    .btn_tab:hover {
+        background-color: var(--static_white_20);
+    }
+
+    .link_nav:hover,
+    .link_nav:active {
+        background-color: var(--primary_10);
+        color: var(--primary);
+    }
 }

@@ -1,3 +1,9 @@
+.slider {
+    position: relative;
+    left: 0;
+    transition: left 0.3s ease-in-out;
+}
+
 .slider_img {
     width: 200px;
     height: 200px;
