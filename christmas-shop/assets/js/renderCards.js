@@ -27,7 +27,7 @@ function createDOMElement(option) {
     return element;
 }
 
-function createCard(data) {
+function createCard(data, index) {
     const cardCategory = {
         'For Work': 'card-work',
         'For Health': 'card-health',
@@ -35,7 +35,12 @@ function createCard(data) {
     }
     const cardItem = createDOMElement({
         tagName: 'li',
-        classList: `card-item flex ${cardCategory[data.category]}`
+        classList: 'card-item flex flex--column',
+        attributes: {data_id: index}
+    });
+       createDOMElement({
+        classList: `card-img ${cardCategory[data.category]} card-bg`,
+        appendParent: cardItem,
     });
     const cardText = createDOMElement({
         tagName: 'div',
@@ -70,6 +75,6 @@ export function renderCards(num, maxIndex) {
     const cardsArr = getRandomArr(num, maxIndex);
     // console.log(cardsArr);
     cardsArr.forEach((index) => {
-        cardsList.appendChild(createCard(giftsData[index]));
+        cardsList.appendChild(createCard(giftsData[index], index));
     })
 }

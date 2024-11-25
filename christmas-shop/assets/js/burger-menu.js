@@ -8,7 +8,7 @@ function switchMobileNav() {
     burgerBtn.classList.toggle("btn_burger--active");
 
     if (burgerBtn.classList.contains("btn_burger--active")) {
-        document.documentElement.style.overflow = "hidden"
+        document.documentElement.style.overflow = "hidden";
         nav.style.height = `calc(100dvh - 64px + ${window.scrollY}px)`
 
     } else {

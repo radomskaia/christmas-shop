@@ -3,6 +3,7 @@
     height: 342px;
     border-radius: var(--border-radius);
     cursor: pointer;
+    background: var(--content_background);
 }
 
 .card-text {
@@ -19,33 +20,48 @@
     }
 }
 
-.card-work {
-    background: url("/img/gift-for-work.png"), var(--content_background);
+.card-img {
+    height: 230px;
+}
 
-    .header_4 {
+.card-work {
+    background: url("/img/gift-for-work.png");
+
+    & ~ .card-text .header_4 {
         color: var(--tag_purple);
     }
+
+      & ~ .modal-text .modal-info .header_4 {
+        color: var(--tag_purple);
+    }
+
 }
 
 .card-health {
-    background: url("/img/gift-for-health.png"), var(--content_background);
+    background: url("/img/gift-for-health.png");
 
-    .header_4 {
+    & ~ .card-text .header_4 {
+        color: var(--tag_green);
+    }
+
+        & ~ .modal-text .modal-info .header_4 {
         color: var(--tag_green);
     }
 }
 
 .card-harmony {
-    background: url("/img/gift-for-harmony.png"), var(--content_background);
+    background: url("/img/gift-for-harmony.png");
 
-    .header_4 {
+    & ~ .card-text .header_4 {
+        color: var(--tag_pink);
+    }
+
+    & ~ .modal-text .modal-info .header_4 {
         color: var(--tag_pink);
     }
 }
 
-.card-work,
-.card-health,
-.card-harmony {
+.card-bg {
     background-position: top center;
     background-size: contain;
     background-repeat: no-repeat;

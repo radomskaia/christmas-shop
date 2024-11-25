@@ -88,25 +88,50 @@
     color: var(--primary);
 }
 
-.btn_burger {
-    display: none;
+.btn_burger,
+.modal_btn {
     border: none;
     width: 40px;
     height: 40px;
     position: relative;
 }
 
+.btn_burger {
+    display: none;
+}
+
+.modal_btn::before,
+.modal_btn::after,
 .btn_burger::before,
 .btn_burger::after {
     content: '';
-    width: 20px;
     height: 2px;
     background-color: var(--dark);
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
     transition: all 0.3s ease-in-out;
 }
+
+.btn_burger::before,
+.btn_burger::after {
+    width: 20px;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.modal_btn::before,
+.modal_btn::after {
+    width: 28.28px;
+    top: 50%;
+}
+
+.modal_btn::before {
+    transform: translate(-50%, 50%) rotate(45deg);
+}
+
+.modal_btn::after {
+    transform: translate(-50%, 50%) rotate(-45deg);
+}
+
 
 .btn_burger::before {
     top: 16px;
@@ -116,6 +141,7 @@
     top: 24px;
 }
 
+.modal_btn,
 .btn_burger--active {
     &.btn_burger::before,
     &.btn_burger::after {

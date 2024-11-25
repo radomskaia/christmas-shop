@@ -40,6 +40,14 @@
     gap: 8px;
 }
 
+.margin_bottom-8 {
+    margin-bottom: 8px;
+}
+
+.margin_right-auto {
+    margin-right: auto;
+}
+
 .bg-snow {
     background-image: url("/img/bg-snow.png");
     background-size: cover;
