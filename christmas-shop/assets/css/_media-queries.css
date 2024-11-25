@@ -20,21 +20,22 @@
 
 /*768px*/
 @media only screen and (max-width: 48em) {
-    html {
+    html,body {
         overflow-x: hidden;
     }
+
     /*.main {*/
     /*    position: relative;*/
     /*}*/
     .nav {
         display: flex;
-        position: absolute;
+        /*display: none;*/
+        position: fixed;
         top: 64px;
-        left: 101%;
-
+        transform: translateX(101%);
         background: var(--static_white);
         z-index: 999;
-        width: 100%;
+        width: 100dvw;
         height: calc(100dvh - 64px);
         justify-content: center;
         align-items: center;
@@ -59,7 +60,7 @@
     .btn_burger--active ~ .nav {
         pointer-events: auto;
         visibility: visible;
-        left: 0;
+        transform: translateX(-8px);
     }
 
     .btn_burger {
