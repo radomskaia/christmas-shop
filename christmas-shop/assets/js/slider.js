@@ -45,8 +45,8 @@ function setButtonDisabled(btn, bool, direction = '') {
     btn.disabled = bool;
 }
 
-function updateSliderPosition(offset) {
-    sliderEl.style.left = `${offset}px`;
+function updateSliderPosition() {
+    sliderEl.style.left = `${sliderOffset}px`;
 }
 
 function moveSlider() {
@@ -85,27 +85,14 @@ function moveSlider() {
         setButtonDisabled(directionSettings[direction].btn, true, direction)
     }
 
-    updateSliderPosition(sliderOffset)
+    updateSliderPosition()
 }
 
 function handleResize() {
-     let maxOffset = getMaxOffset();
-
-    if (sliderOffset <= -maxOffset) {
-        setButtonDisabled(rightBtn, true, 'right')
-        updateSliderPosition(-maxOffset)
-        return
-    }
-
-    const lastStep = -maxOffset + getSliderOffsetStep();
-
-    if (sliderOffset < lastStep) {
-        updateSliderPosition(lastStep)
-
-        if (btnDisabled === 'right') {
-            setButtonDisabled(rightBtn, false)
-        }
-    }
+    setButtonDisabled(rightBtn, false);
+    setButtonDisabled(leftBtn, true, 'left');
+    sliderOffset = 0;
+    updateSliderPosition();
 }
 
 export function slider() {

@@ -38,7 +38,6 @@ function openModal(target) {
     paintStars(data.superpowers.live[1], liveStarList.querySelectorAll('svg'), 1);
     dreamEl.textContent = data.superpowers.dream;
     paintStars(data.superpowers.dream[1], dreamStarList.querySelectorAll('svg'), 1);
-
     document.documentElement.style.overflow = "hidden";
 
 }
