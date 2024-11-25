@@ -23,24 +23,33 @@
     background-color: var(--dark);
 }
 
-.btn_tab,
+.btn_to-top,
 .btn_square {
     border: solid 1px transparent;
 }
 
 .btn_square {
-    padding: 16px;
+    /*padding: 16px;*/
 }
 
 .btn_arrow {
     border-color: var(--static_white);
+}
+
+.btn_to-top,
+.btn_arrow {
     width: 56px;
     height: 56px;
 }
 
-.btn_up {
+.btn_to-top {
+    position: fixed;
+    right: 8px;
+    bottom: 8px;
     background-color: var(--static_white);
     color: var(--primary);
+    border-radius: 50%;
+    border-color: 1px solid var(--primary);
 }
 
 .btn_arrow:disabled {
@@ -49,12 +58,6 @@
     color: var(--static_white_40);
     cursor: auto;
 }
-
-.btn_up {
-    border-radius: 50%;
-    border-color: var(--primary);
-}
-
 
 .link_nav,
 .link_nav:visited,

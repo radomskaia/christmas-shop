@@ -1,9 +1,8 @@
-import {getScreenWidth} from "./utils.js";
+import {TABLET_WIDTH} from "./utils.js";
 
 const CLICKS_FOR_DESKTOP = 3;
 const CLICKS_FOR_TABLET = 6;
 const SMALL_PADDING_WIDTH = 976;
-const TABLET_WIDTH = 768;
 const SMALL_PADDING = 8;
 const NORMAL_PADDING = 82;
 
@@ -33,7 +32,7 @@ function getMaxOffset() {
 }
 
 function getSliderOffsetStep(maxOffset) {
-    let screenWidth = getScreenWidth();
+    let screenWidth = document.documentElement.clientWidth;
     let padding = getPadding(screenWidth);
     let clickAmount = getClickAmount(screenWidth);
 
