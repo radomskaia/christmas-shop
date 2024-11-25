@@ -64,13 +64,12 @@
 }
 
 .btn_tab {
-    padding: 11px 19px;
+    padding: 12px 20px;
     border-radius: 12px;
 }
 
-.btn_tab:disabled {
+input:checked ~ .btn_tab {
     cursor: auto;
-    border: solid 1px var(--static_white_20);
     background-color: var(--static_white_20);
 }
 
@@ -121,7 +120,6 @@
 .modal_btn::before,
 .modal_btn::after {
     width: 28.28px;
-    top: 50%;
 }
 
 .modal_btn::before {
@@ -182,7 +180,6 @@
     }
 
     .btn_tab:hover {
-        border: solid 1px var(--static_white_20);
         background-color: var(--static_white_20);
     }
 

@@ -38,7 +38,7 @@ function createCard(data, index) {
         classList: 'card-item flex flex--column',
         attributes: {data_id: index}
     });
-       createDOMElement({
+    createDOMElement({
         classList: `card-img ${cardCategory[data.category]} card-bg`,
         appendParent: cardItem,
     });
@@ -62,18 +62,42 @@ function createCard(data, index) {
     return cardItem;
 }
 
-function getRandomArr(num, maxIndex) {
+function getRandomArr(tabName, page) {
+    const categories = {
+        all: {
+            min: 0,
+            max: 36,
+            amount: page === 'gifts' ? 36 : 4,
+        },
+        work: {
+            min: 0,
+            max: 12,
+            amount: 12,
+        },
+        health: {
+            min: 12,
+            max: 24,
+            amount: 12,
+        },
+        harmony: {
+            min: 24,
+            max: 36,
+            amount: 12,
+        },
+    }
     let result = new Set;
-    while (result.size < num) {
-        result.add(Math.floor(Math.random() * maxIndex));
+    while (result.size < categories[tabName].amount) {
+        result.add(Math.floor(Math.random()
+            * (categories[tabName].max - categories[tabName].min)
+            + categories[tabName].min));
     }
     return [...result];
 }
 
-export function renderCards(num, maxIndex) {
+export function renderCards(tabName, page = 'gifts') {
     const cardsList = document.querySelector('.card-list');
-    const cardsArr = getRandomArr(num, maxIndex);
-    // console.log(cardsArr);
+    cardsList.innerHTML = '';
+    const cardsArr = getRandomArr( tabName, page);
     cardsArr.forEach((index) => {
         cardsList.appendChild(createCard(giftsData[index], index));
     })

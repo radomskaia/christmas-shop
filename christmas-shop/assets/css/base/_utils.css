@@ -48,6 +48,10 @@
     margin-right: auto;
 }
 
+.display-none {
+    display: none;
+}
+
 .bg-snow {
     background-image: url("/img/bg-snow.png");
     background-size: cover;

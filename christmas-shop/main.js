@@ -9,10 +9,5 @@ import {modal} from "./assets/js/modal.js";
 burgerMenu()
 slider()
 timer()
-
-
-
-
-renderCards(4, 36)
-
+renderCards('all', 'home')
 modal()
