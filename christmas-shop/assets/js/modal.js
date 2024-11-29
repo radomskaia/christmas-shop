@@ -33,13 +33,13 @@ function changeModalContent(data, bool) {
     paintStars(data.superpowers.live[1], liveStarList.querySelectorAll('svg'), (bool ? 1 : 0.1));
     dreamEl.textContent = bool ? data.superpowers.dream : '';
     paintStars(data.superpowers.dream[1], dreamStarList.querySelectorAll('svg'), (bool ? 1 : 0.1));
-    document.documentElement.style.overflow = bool ? "hidden" : '';
 }
 
 function openModal(target) {
     const index = target.dataset.id;
     data = giftsData[index];
     changeModalContent(data, true);
+    console.log(modalEl)
     modalEl.showModal();
 
 }
