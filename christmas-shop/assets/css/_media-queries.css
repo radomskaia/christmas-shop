@@ -24,14 +24,16 @@
         overflow-x: hidden;
     }
 
-    /*.main {*/
-    /*    position: relative;*/
-    /*}*/
+    html:has(.btn_burger--active) {
+        overflow-y: hidden;
+    }
+
      .logo,
      .btn_burger {
          position: relative;
         z-index: 999;
     }
+
     .nav {
         display: flex;
         position: fixed;

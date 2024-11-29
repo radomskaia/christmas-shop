@@ -14,7 +14,7 @@
 @import "_media-queries.css";
 
 /*base*/
-*,
+*:not(dialog),
 *::before,
 *::after {
     box-sizing: border-box;
