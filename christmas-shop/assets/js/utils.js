@@ -1,6 +1,12 @@
 export const TABLET_WIDTH = 768;
 
-export const mediaQuery = window.matchMedia('(max-width: 768px)');
+export const mediaQuery = window.matchMedia(`(max-width: ${TABLET_WIDTH}px)`);
+
+export const cardCategory = {
+    'For Work': 'card-work',
+    'For Health': 'card-health',
+    'For Harmony': 'card-harmony',
+}
 
 export function createDOMElement(option) {
     let {

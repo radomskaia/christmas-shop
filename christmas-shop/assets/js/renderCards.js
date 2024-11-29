@@ -1,16 +1,11 @@
 import giftsData from "../gifts.json";
-import {createDOMElement} from "./utils.js";
+import {cardCategory, createDOMElement} from "./utils.js";
 
 function createCard(data, index) {
-    const cardCategory = {
-        'For Work': 'card-work',
-        'For Health': 'card-health',
-        'For Harmony': 'card-harmony',
-    }
     const cardItem = createDOMElement({
         tagName: 'li',
         classList: 'card-item flex flex--column',
-        attributes: {data_id: index}
+        attributes: {'data-id': index}
     });
     createDOMElement({
         classList: `card-img ${cardCategory[data.category]} card-bg`,
