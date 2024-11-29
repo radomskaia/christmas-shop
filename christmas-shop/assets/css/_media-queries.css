@@ -27,16 +27,21 @@
     /*.main {*/
     /*    position: relative;*/
     /*}*/
+     .logo,
+     .btn_burger {
+         position: relative;
+        z-index: 999;
+    }
     .nav {
         display: flex;
-        /*display: none;*/
         position: fixed;
-        top: 64px;
+        top: 0;
+        padding-top: 64px;
         transform: translateX(101%);
         background: var(--static_white);
-        z-index: 999;
+        z-index: 899;
         width: 100dvw;
-        height: calc(100dvh - 64px);
+        height: 100dvh;
         justify-content: center;
         align-items: center;
         pointer-events: none;
