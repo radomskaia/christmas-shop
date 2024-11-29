@@ -19,6 +19,7 @@ function toggleScrollBtnDisplay(e) {
 }
 
 export function scrollToTop() {
+    toggleScrollBtnDisplay(mediaQuery)
     mediaQuery.addEventListener('change', toggleScrollBtnDisplay)
     window.addEventListener('scroll', showToTopButton);
     toTopBth.addEventListener('click', () => window.scrollTo(0, 0));

@@ -20,22 +20,28 @@
 
 /*768px*/
 @media only screen and (max-width: 48em) {
-    html {
+    html,body {
         overflow-x: hidden;
     }
+
     /*.main {*/
     /*    position: relative;*/
     /*}*/
+     .logo,
+     .btn_burger {
+         position: relative;
+        z-index: 999;
+    }
     .nav {
         display: flex;
-        position: absolute;
-        top: 64px;
-        left: 101%;
-
+        position: fixed;
+        top: 0;
+        padding-top: 64px;
+        transform: translateX(101%);
         background: var(--static_white);
-        z-index: 999;
-        width: 100%;
-        height: calc(100dvh - 64px);
+        z-index: 899;
+        width: 100dvw;
+        height: 100dvh;
         justify-content: center;
         align-items: center;
         pointer-events: none;
@@ -59,7 +65,7 @@
     .btn_burger--active ~ .nav {
         pointer-events: auto;
         visibility: visible;
-        left: 0;
+        transform: translateX(-8px);
     }
 
     .btn_burger {

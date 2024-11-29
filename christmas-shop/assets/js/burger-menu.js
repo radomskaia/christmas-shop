@@ -9,7 +9,7 @@ function switchMobileNav() {
 
     if (burgerBtn.classList.contains("btn_burger--active")) {
         document.documentElement.style.overflow = "hidden";
-        nav.style.height = `calc(100dvh - 64px + ${window.scrollY}px)`
+        window.scrollTo(0, 0)
 
     } else {
         document.documentElement.style.overflow = "";
@@ -19,7 +19,7 @@ function switchMobileNav() {
 function closeMobileNavDesktop(e) {
     if (!e.matches) {
         burgerBtn.classList.remove("btn_burger--active");
-        nav.style.height = ``
+        document.documentElement.style.overflow = "";
     }
 }
 

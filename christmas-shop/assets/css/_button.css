@@ -45,7 +45,7 @@
 .btn_to-top {
     position: fixed;
     right: 8px;
-    bottom: 8px;
+    bottom: -100%;
     background-color: var(--static_white);
     color: var(--primary);
     border-radius: 50%;
