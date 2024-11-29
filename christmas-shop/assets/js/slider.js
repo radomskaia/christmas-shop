@@ -79,7 +79,7 @@ function moveSlider() {
         setButtonDisabled(directionSettings[direction].btn, true, direction)
 
     }
-    if (sliderOffset < -maxOffset) {
+    if (sliderOffset <= -maxOffset) {
         sliderOffset = -maxOffset;
         setButtonDisabled(directionSettings[direction].btn, true, direction)
     }
