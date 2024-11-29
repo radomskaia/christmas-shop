@@ -8,18 +8,13 @@ function switchMobileNav() {
     burgerBtn.classList.toggle("btn_burger--active");
 
     if (burgerBtn.classList.contains("btn_burger--active")) {
-        document.documentElement.style.overflow = "hidden";
         window.scrollTo(0, 0)
-
-    } else {
-        document.documentElement.style.overflow = "";
     }
 }
 
 function closeMobileNavDesktop(e) {
     if (!e.matches) {
         burgerBtn.classList.remove("btn_burger--active");
-        document.documentElement.style.overflow = "";
     }
 }
 
