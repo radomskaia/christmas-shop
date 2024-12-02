@@ -41,6 +41,7 @@ function openModal(target) {
     changeModalContent(data, true);
     console.log(modalEl)
     modalEl.showModal();
+    document.activeElement.blur()
 
 }
 
