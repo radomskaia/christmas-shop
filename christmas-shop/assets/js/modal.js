@@ -1,7 +1,7 @@
 import giftsData from "../gifts.json";
 import {cardCategory} from "./utils.js";
 
-const modalEl = document.querySelector('.modal');
+const modalElement = document.querySelector('.modal');
 
 let data;
 
@@ -12,46 +12,46 @@ function paintStars(num, starsArr, value) {
 }
 
 function changeModalContent(data, bool) {
-    const giftImg = document.querySelector('.card-img.modal-bg');
-    const [giftCategory, giftName, giftDescription] = document.querySelectorAll('.modal-info > *')
-    const [liveEl, createEl, loveEl, dreamEl] = document.querySelectorAll('.superpowers-grade')
-    const [liveStarList, createStarList, loveStarList, dreamStarList] = document.querySelectorAll('.stars-list');
+    const giftImage = document.querySelector('.card-img.modal-bg');
+    const elements = {};
+    [elements.category, elements.name, elements.description] = document.querySelectorAll('.modal-info > *');
+    [elements.superpowers.live, elements.superpowers.create, elements.superpowers.love, elements.superpowers.dream] = document.querySelectorAll('.superpowers-grade');
+    [elements.starsList.live, elements.starsList.create, elements.starsList.love, elements.starsList.dream] = document.querySelectorAll('.stars-list');
 
-    giftCategory.textContent = bool ? data.category : '';
-    giftName.textContent = bool ? data.name : '';
-    giftDescription.textContent = bool ? data.description : '';
+    elements.category.textContent = bool ? data.category : '';
+    elements.name.textContent = bool ? data.name : '';
+    elements.description.textContent = bool ? data.description : '';
     if (bool) {
-        giftImg.classList.add(cardCategory[data.category])
+        giftImage.classList.add(cardCategory[data.category])
     } else {
-        giftImg.classList.remove(cardCategory[data.category])
+        giftImage.classList.remove(cardCategory[data.category])
     }
-    loveEl.textContent = bool ? data.superpowers.love : '';
-    paintStars(data.superpowers.love[1], loveStarList.querySelectorAll('svg'), (bool ? 1 : 0.1));
-    createEl.textContent = bool ? data.superpowers.create : '';
-    paintStars(data.superpowers.create[1], createStarList.querySelectorAll('svg'), (bool ? 1 : 0.1));
-    liveEl.textContent = bool ? data.superpowers.live : '';
-    paintStars(data.superpowers.live[1], liveStarList.querySelectorAll('svg'), (bool ? 1 : 0.1));
-    dreamEl.textContent = bool ? data.superpowers.dream : '';
-    paintStars(data.superpowers.dream[1], dreamStarList.querySelectorAll('svg'), (bool ? 1 : 0.1));
+    elements.superpowers.love.textContent = bool ? data.superpowers.love : '';
+    paintStars(data.superpowers.love[1], elements.starsList.love.querySelectorAll('svg'), (bool ? 1 : 0.1));
+    elements.superpowers.create.textContent = bool ? data.superpowers.create : '';
+    paintStars(data.superpowers.create[1], elements.starsList.create.querySelectorAll('svg'), (bool ? 1 : 0.1));
+    elements.superpowers.live.textContent = bool ? data.superpowers.live : '';
+    paintStars(data.superpowers.live[1], elements.starsList.live.querySelectorAll('svg'), (bool ? 1 : 0.1));
+    elements.superpowers.dream.textContent = bool ? data.superpowers.dream : '';
+    paintStars(data.superpowers.dream[1], elements.starsList.dream.querySelectorAll('svg'), (bool ? 1 : 0.1));
 }
 
 function openModal(target) {
     const index = target.dataset.id;
     data = giftsData[index];
     changeModalContent(data, true);
-    modalEl.showModal();
+    modalElement.showModal();
     document.activeElement.blur()
 
 }
 
 function closeModal() {
-    modalEl.close();
-    changeModalContent(data, false);
+    modalElement.close();
 }
 
 export function modal() {
     const cardList = document.querySelector('.card-list');
-    const closeBtn = document.querySelector('.modal_btn');
+    const closeButton = document.querySelector('.modal_btn');
 
     cardList.addEventListener('click', (e) => {
         const target = e.target.closest('.card-item')
@@ -60,9 +60,9 @@ export function modal() {
         }
     })
 
-    closeBtn.addEventListener('click', closeModal)
+    closeButton.addEventListener('click', closeModal)
 
-    modalEl.addEventListener('click', (e) => {
+    modalElement.addEventListener('click', (e) => {
         if (!e.target.closest('.content-wrapper')) {
             closeModal()
         }
