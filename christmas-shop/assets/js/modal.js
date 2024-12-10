@@ -39,7 +39,6 @@ function openModal(target) {
     const index = target.dataset.id;
     data = giftsData[index];
     changeModalContent(data, true);
-    console.log(modalEl)
     modalEl.showModal();
     document.activeElement.blur()
 

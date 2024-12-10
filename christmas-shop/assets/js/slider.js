@@ -32,9 +32,9 @@ function getMaxOffset() {
 }
 
 function getSliderOffsetStep(maxOffset) {
-    let screenWidth = document.documentElement.clientWidth;
-    let padding = getPadding(screenWidth);
-    let clickAmount = getClickAmount(screenWidth);
+    const screenWidth = document.documentElement.clientWidth;
+    const padding = getPadding(screenWidth);
+    const clickAmount = getClickAmount(screenWidth);
 
     return (maxOffset + padding) / clickAmount;
 }
