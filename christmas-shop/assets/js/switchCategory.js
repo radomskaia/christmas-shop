@@ -2,14 +2,14 @@ import {renderCards} from "./renderCards.js";
 
 
 export function switchCategory() {
-    let isChecked = 'all';
+    let activeTab = 'all';
     const tabsList = document.querySelector('.tabs-list');
 
     tabsList.addEventListener('click', (e) => {
         const selectedTab = e.target.closest('.btn_tab')?.getAttribute('for');
-        if (selectedTab && selectedTab !== isChecked) {
+        if (selectedTab && selectedTab !== activeTab) {
             renderCards(selectedTab);
-            isChecked = selectedTab;
+            activeTab = selectedTab;
         }
     })
 }
