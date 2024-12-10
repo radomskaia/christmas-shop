@@ -1,20 +1,20 @@
 import {mediaQuery} from "./utils.js";
-
+const ACTIVE_CLASS = "btn_burger--active";
 
 const burgerBtn = document.querySelector(".btn_burger");
 const nav = document.querySelector(".nav");
 
 function switchMobileNav() {
-    burgerBtn.classList.toggle("btn_burger--active");
+    burgerBtn.classList.toggle(ACTIVE_CLASS);
 
-    if (burgerBtn.classList.contains("btn_burger--active")) {
+    if (burgerBtn.classList.contains(ACTIVE_CLASS)) {
         window.scrollTo(0, 0)
     }
 }
 
 function closeMobileNavDesktop(e) {
     if (!e.matches) {
-        burgerBtn.classList.remove("btn_burger--active");
+        burgerBtn.classList.remove(ACTIVE_CLASS);
     }
 }
 

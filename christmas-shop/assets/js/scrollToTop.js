@@ -1,9 +1,9 @@
 import {mediaQuery} from "./utils.js";
-
+const TO_TOP_BUTTON_THRESHOLD = 300;
 const toTopBth = document.querySelector(".btn_to-top");
 
 function showToTopButton() {
-    if (window.scrollY > 300) {
+    if (window.scrollY > TO_TOP_BUTTON_THRESHOLD) {
         toTopBth.style.bottom = "8px";
     } else {
         toTopBth.style.bottom = "-100%";

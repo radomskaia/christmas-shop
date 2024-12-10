@@ -1,5 +1,13 @@
 import giftsData from "../gifts.json";
 import {cardCategory, createDOMElement} from "./utils.js";
+const TOTAL_CARDS = 36;
+const CARDS_PER_HOME_PAGE = 4;
+const CARDS_PER_CATEGORY = 12;
+const CATEGORY_INDEX_BREAKPOINTS = {
+    WORK: 12,
+    HEALTH: 24,
+    HARMONY: 36,
+};
 
 function createCard(data, index) {
     const cardItem = createDOMElement({
@@ -35,23 +43,23 @@ function getRandomArr(tabName, page) {
     const categories = {
         all: {
             min: 0,
-            max: 36,
-            amount: page === 'gifts' ? 36 : 4,
+            max: TOTAL_CARDS,
+            amount: page === 'gifts' ? TOTAL_CARDS : CARDS_PER_HOME_PAGE,
         },
         work: {
             min: 0,
-            max: 12,
-            amount: 12,
+            max: CATEGORY_INDEX_BREAKPOINTS.WORK,
+            amount: CARDS_PER_CATEGORY,
         },
         health: {
-            min: 12,
-            max: 24,
-            amount: 12,
+            min: CATEGORY_INDEX_BREAKPOINTS.WORK,
+            max: CATEGORY_INDEX_BREAKPOINTS.HEALTH,
+            amount: CARDS_PER_CATEGORY,
         },
         harmony: {
-            min: 24,
-            max: 36,
-            amount: 12,
+            min: CATEGORY_INDEX_BREAKPOINTS.HEALTH,
+            max: CATEGORY_INDEX_BREAKPOINTS.WORK,
+            amount: CARDS_PER_CATEGORY,
         },
     }
     let result = new Set;

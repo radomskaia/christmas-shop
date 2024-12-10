@@ -1,6 +1,6 @@
 const MS_IN_SECOND = 1000;
-const MS_IN_MINUTES = 60 * MS_IN_SECOND;
-const MS_IN_HOUR = 60 * MS_IN_MINUTES;
+const MS_IN_MINUTE = 60 * MS_IN_SECOND;
+const MS_IN_HOUR = 60 * MS_IN_MINUTE;
 const MS_IN_DAY = 24 * MS_IN_HOUR;
 
 let timerIntervalId;
@@ -20,8 +20,8 @@ function updateTimer(finalDate) {
     dateDifference %= MS_IN_DAY;
     hoursEl.textContent = getTime(dateDifference, MS_IN_HOUR);
     dateDifference %= MS_IN_HOUR;
-    minEl.textContent = getTime(dateDifference, MS_IN_MINUTES);
-    dateDifference %= MS_IN_MINUTES;
+    minEl.textContent = getTime(dateDifference, MS_IN_MINUTE);
+    dateDifference %= MS_IN_MINUTE;
     secEl.textContent = getTime(dateDifference, MS_IN_SECOND);
 }
 
