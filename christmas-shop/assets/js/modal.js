@@ -1,70 +1,66 @@
 import giftsData from "../gifts.json";
 import {cardCategory} from "./utils.js";
-
+const FULLY_FILLED = 1;
+const PARTIALLY_FILLED = 0.1;
 const modalElement = document.querySelector('.modal');
 
-let data;
-
-function paintStars(num, starsArr, value) {
-    for (let i = 0; i < num; i++) {
-        starsArr[i].style.fillOpacity = value;
+function paintStars(num, starsArray) {
+    for (let i = 0; i < starsArray.length; i++) {
+        starsArray[i].style.fillOpacity = (i < num) ? FULLY_FILLED : PARTIALLY_FILLED;
     }
 }
 
-function changeModalContent(data, bool) {
-    const giftImage = document.querySelector('.card-img.modal-bg');
-    const elements = {};
+function changeModalContent(data, previousCard) {
+    const elements = {superpowers: {}, starsList: {}};
+    elements.image = document.querySelector('.card-img.modal-bg');
     [elements.category, elements.name, elements.description] = document.querySelectorAll('.modal-info > *');
     [elements.superpowers.live, elements.superpowers.create, elements.superpowers.love, elements.superpowers.dream] = document.querySelectorAll('.superpowers-grade');
     [elements.starsList.live, elements.starsList.create, elements.starsList.love, elements.starsList.dream] = document.querySelectorAll('.stars-list');
+    elements.category.textContent = data.category;
 
-    elements.category.textContent = bool ? data.category : '';
-    elements.name.textContent = bool ? data.name : '';
-    elements.description.textContent = bool ? data.description : '';
-    if (bool) {
-        giftImage.classList.add(cardCategory[data.category])
-    } else {
-        giftImage.classList.remove(cardCategory[data.category])
+    elements.name.textContent = data.name;
+    elements.description.textContent = data.description;
+
+    for (const [key, value] of Object.entries(data.superpowers)) {
+        elements.superpowers[key].textContent = value;
+        paintStars(value[1], elements.starsList[key].querySelectorAll('svg'));
     }
-    elements.superpowers.love.textContent = bool ? data.superpowers.love : '';
-    paintStars(data.superpowers.love[1], elements.starsList.love.querySelectorAll('svg'), (bool ? 1 : 0.1));
-    elements.superpowers.create.textContent = bool ? data.superpowers.create : '';
-    paintStars(data.superpowers.create[1], elements.starsList.create.querySelectorAll('svg'), (bool ? 1 : 0.1));
-    elements.superpowers.live.textContent = bool ? data.superpowers.live : '';
-    paintStars(data.superpowers.live[1], elements.starsList.live.querySelectorAll('svg'), (bool ? 1 : 0.1));
-    elements.superpowers.dream.textContent = bool ? data.superpowers.dream : '';
-    paintStars(data.superpowers.dream[1], elements.starsList.dream.querySelectorAll('svg'), (bool ? 1 : 0.1));
+
+    elements.image.classList.remove(cardCategory[previousCard.category])
+    elements.image.classList.add(cardCategory[data.category])
+
+    previousCard.category = data.category;
 }
 
-function openModal(target) {
+function openModal(target, previousCard) {
     const index = target.dataset.id;
-    data = giftsData[index];
-    changeModalContent(data, true);
+    if (index !== previousCard.index) {
+        const data = giftsData[index];
+        changeModalContent(data, previousCard);
+        previousCard.index = index;
+    }
     modalElement.showModal();
     document.activeElement.blur()
 
 }
 
-function closeModal() {
-    modalElement.close();
-}
-
 export function modal() {
     const cardList = document.querySelector('.card-list');
     const closeButton = document.querySelector('.modal_btn');
+    const previousCard = {};
 
     cardList.addEventListener('click', (e) => {
         const target = e.target.closest('.card-item')
         if (target) {
-            openModal(target)
+            openModal(target, previousCard)
         }
     })
 
-    closeButton.addEventListener('click', closeModal)
+    closeButton.addEventListener('click', modalElement.close.bind(modalElement))
 
     modalElement.addEventListener('click', (e) => {
         if (!e.target.closest('.content-wrapper')) {
-            closeModal()
+            modalElement.close();
         }
     })
 }
