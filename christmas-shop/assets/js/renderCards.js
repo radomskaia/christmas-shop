@@ -8,7 +8,28 @@ const CATEGORY_INDEX_BREAKPOINTS = {
     HEALTH: 24,
     HARMONY: 36,
 };
-
+const categories = {
+        all: {
+            min: 0,
+            max: TOTAL_CARDS,
+            amount: TOTAL_CARDS,
+        },
+        work: {
+            min: 0,
+            max: CATEGORY_INDEX_BREAKPOINTS.WORK,
+            amount: CARDS_PER_CATEGORY,
+        },
+        health: {
+            min: CATEGORY_INDEX_BREAKPOINTS.WORK,
+            max: CATEGORY_INDEX_BREAKPOINTS.HEALTH,
+            amount: CARDS_PER_CATEGORY,
+        },
+        harmony: {
+            min: CATEGORY_INDEX_BREAKPOINTS.HEALTH,
+            max: CATEGORY_INDEX_BREAKPOINTS.WORK,
+            amount: CARDS_PER_CATEGORY,
+        },
+    }
 function createCard(data, index) {
     const cardItem = createDOMElement({
         tagName: 'li',
@@ -39,31 +60,10 @@ function createCard(data, index) {
     return cardItem;
 }
 
-function getRandomArr(tabName, page) {
-    const categories = {
-        all: {
-            min: 0,
-            max: TOTAL_CARDS,
-            amount: page === 'gifts' ? TOTAL_CARDS : CARDS_PER_HOME_PAGE,
-        },
-        work: {
-            min: 0,
-            max: CATEGORY_INDEX_BREAKPOINTS.WORK,
-            amount: CARDS_PER_CATEGORY,
-        },
-        health: {
-            min: CATEGORY_INDEX_BREAKPOINTS.WORK,
-            max: CATEGORY_INDEX_BREAKPOINTS.HEALTH,
-            amount: CARDS_PER_CATEGORY,
-        },
-        harmony: {
-            min: CATEGORY_INDEX_BREAKPOINTS.HEALTH,
-            max: CATEGORY_INDEX_BREAKPOINTS.WORK,
-            amount: CARDS_PER_CATEGORY,
-        },
-    }
+function getUniqueRandomArrayForCategory(tabName, page) {
     let result = new Set;
-    while (result.size < categories[tabName].amount) {
+    const amount = page === 'gifts' ? categories[tabName].amount : CARDS_PER_HOME_PAGE;
+    while (result.size < amount) {
         result.add(Math.floor(Math.random()
             * (categories[tabName].max - categories[tabName].min)
             + categories[tabName].min));
@@ -74,7 +74,7 @@ function getRandomArr(tabName, page) {
 export function renderCards(tabName, page = 'gifts') {
     const cardsList = document.querySelector('.card-list');
     cardsList.innerHTML = '';
-    const cardsArr = getRandomArr( tabName, page);
+    const cardsArr = getUniqueRandomArrayForCategory( tabName, page);
     cardsArr.forEach((index) => {
         cardsList.appendChild(createCard(giftsData[index], index));
     })
