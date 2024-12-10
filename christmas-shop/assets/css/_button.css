@@ -48,6 +48,10 @@
     border-color: 1px solid var(--primary);
 }
 
+.btn_to-top--visible {
+    bottom: 8px;
+}
+
 .btn_arrow:disabled {
     border-color: var(--static_white_40);
     background-color: transparent;
