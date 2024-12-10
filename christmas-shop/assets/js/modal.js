@@ -1,71 +1,66 @@
 import giftsData from "../gifts.json";
 import {cardCategory} from "./utils.js";
+const FULLY_FILLED = 1;
+const PARTIALLY_FILLED = 0.1;
+const modalElement = document.querySelector('.modal');
 
-const modalEl = document.querySelector('.modal');
-
-let data;
-
-function paintStars(num, starsArr, value) {
-    for (let i = 0; i < num; i++) {
-        starsArr[i].style.fillOpacity = value;
+function paintStars(num, starsArray) {
+    for (let i = 0; i < starsArray.length; i++) {
+        starsArray[i].style.fillOpacity = (i < num) ? FULLY_FILLED : PARTIALLY_FILLED;
     }
 }
 
-function changeModalContent(data, bool) {
-    const giftImg = document.querySelector('.card-img.modal-bg');
-    const [giftCategory, giftName, giftDescription] = document.querySelectorAll('.modal-info > *')
-    const [liveEl, createEl, loveEl, dreamEl] = document.querySelectorAll('.superpowers-grade')
-    const [liveStarList, createStarList, loveStarList, dreamStarList] = document.querySelectorAll('.stars-list');
+function changeModalContent(data, previousCard) {
+    const elements = {superpowers: {}, starsList: {}};
+    elements.image = document.querySelector('.card-img.modal-bg');
+    [elements.category, elements.name, elements.description] = document.querySelectorAll('.modal-info > *');
+    [elements.superpowers.live, elements.superpowers.create, elements.superpowers.love, elements.superpowers.dream] = document.querySelectorAll('.superpowers-grade');
+    [elements.starsList.live, elements.starsList.create, elements.starsList.love, elements.starsList.dream] = document.querySelectorAll('.stars-list');
+    elements.category.textContent = data.category;
 
-    giftCategory.textContent = bool ? data.category : '';
-    giftName.textContent = bool ? data.name : '';
-    giftDescription.textContent = bool ? data.description : '';
-    if (bool) {
-        giftImg.classList.add(cardCategory[data.category])
-    } else {
-        giftImg.classList.remove(cardCategory[data.category])
+    elements.name.textContent = data.name;
+    elements.description.textContent = data.description;
+
+    for (const [key, value] of Object.entries(data.superpowers)) {
+        elements.superpowers[key].textContent = value;
+        paintStars(value[1], elements.starsList[key].querySelectorAll('svg'));
     }
-    loveEl.textContent = bool ? data.superpowers.love : '';
-    paintStars(data.superpowers.love[1], loveStarList.querySelectorAll('svg'), (bool ? 1 : 0.1));
-    createEl.textContent = bool ? data.superpowers.create : '';
-    paintStars(data.superpowers.create[1], createStarList.querySelectorAll('svg'), (bool ? 1 : 0.1));
-    liveEl.textContent = bool ? data.superpowers.live : '';
-    paintStars(data.superpowers.live[1], liveStarList.querySelectorAll('svg'), (bool ? 1 : 0.1));
-    dreamEl.textContent = bool ? data.superpowers.dream : '';
-    paintStars(data.superpowers.dream[1], dreamStarList.querySelectorAll('svg'), (bool ? 1 : 0.1));
+
+    elements.image.classList.remove(cardCategory[previousCard.category])
+    elements.image.classList.add(cardCategory[data.category])
+
+    previousCard.category = data.category;
 }
 
-function openModal(target) {
+function openModal(target, previousCard) {
     const index = target.dataset.id;
-    data = giftsData[index];
-    changeModalContent(data, true);
-    console.log(modalEl)
-    modalEl.showModal();
+    if (index !== previousCard.index) {
+        const data = giftsData[index];
+        changeModalContent(data, previousCard);
+        previousCard.index = index;
+    }
+    modalElement.showModal();
     document.activeElement.blur()
 
 }
 
-function closeModal() {
-    modalEl.close();
-    changeModalContent(data, false);
-}
-
 export function modal() {
     const cardList = document.querySelector('.card-list');
-    const closeBtn = document.querySelector('.modal_btn');
+    const closeButton = document.querySelector('.modal_btn');
+    const previousCard = {};
 
     cardList.addEventListener('click', (e) => {
         const target = e.target.closest('.card-item')
         if (target) {
-            openModal(target)
+            openModal(target, previousCard)
         }
     })
 
-    closeBtn.addEventListener('click', closeModal)
+    closeButton.addEventListener('click', modalElement.close.bind(modalElement))
 
-    modalEl.addEventListener('click', (e) => {
+    modalElement.addEventListener('click', (e) => {
         if (!e.target.closest('.content-wrapper')) {
-            closeModal()
+            modalElement.close();
         }
     })
 }

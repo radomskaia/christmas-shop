@@ -29,8 +29,8 @@ export function createDOMElement(option) {
     if (textContent) {
         element.textContent = textContent;
     }
-    for (let key in attributes) {
-        element.setAttribute(key, attributes[key]);
+    for (const [key, value] of Object.entries(attributes)) {
+        element.setAttribute(key, value);
     }
     return element;
 }

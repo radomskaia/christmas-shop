@@ -1,29 +1,20 @@
 import {mediaQuery} from "./utils.js";
 
-const toTopBth = document.querySelector(".btn_to-top");
+const TO_TOP_BUTTON_THRESHOLD = 300;
+const toTopButton = document.querySelector(".btn_to-top");
 
 function showToTopButton() {
-    if (window.scrollY > 300) {
-        toTopBth.style.bottom = "8px";
-    } else {
-        toTopBth.style.bottom = "-100%";
-    }
+    toTopButton.classList.toggle('btn_to-top--visible', window.scrollY > TO_TOP_BUTTON_THRESHOLD);
 }
 
 function toggleScrollBtnDisplay(e) {
-    if (e.matches) {
-        toTopBth.classList.remove("display-none");
-    } else {
-        toTopBth.classList.add("display-none");
-    }
+    const shouldDisplay = e.matches;
+    toTopButton.classList.toggle("display-none", !shouldDisplay);
 }
 
 export function scrollToTop() {
     toggleScrollBtnDisplay(mediaQuery)
     mediaQuery.addEventListener('change', toggleScrollBtnDisplay)
     window.addEventListener('scroll', showToTopButton);
-    toTopBth.addEventListener('click', () => window.scrollTo(0, 0));
+    toTopButton.addEventListener('click', () => window.scrollTo(0, 0));
 }
-
-
-

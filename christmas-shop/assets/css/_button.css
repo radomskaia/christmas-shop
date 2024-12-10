@@ -28,10 +28,6 @@
     border: solid 1px transparent;
 }
 
-.btn_square {
-    /*padding: 16px;*/
-}
-
 .btn_arrow {
     border-color: var(--static_white);
 }
@@ -50,6 +46,10 @@
     color: var(--primary);
     border-radius: 50%;
     border-color: 1px solid var(--primary);
+}
+
+.btn_to-top--visible {
+    bottom: 8px;
 }
 
 .btn_arrow:disabled {
