@@ -1,4 +1,5 @@
 export const TABLET_WIDTH = 768;
+const DELAY_TIME = 150;
 
 export const mediaQuery = window.matchMedia(`(max-width: ${TABLET_WIDTH}px)`);
 
@@ -33,4 +34,12 @@ export function createDOMElement(option) {
         element.setAttribute(key, value);
     }
     return element;
+}
+
+export function debounce(callback, delay = DELAY_TIME) {
+    let timeoutID;
+    return function (...args) {
+        clearTimeout(timeoutID)
+        timeoutID = setTimeout(() => callback(...args), delay);
+    }
 }

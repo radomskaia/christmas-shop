@@ -1,4 +1,4 @@
-import {TABLET_WIDTH} from "./utils.js";
+import {debounce, TABLET_WIDTH} from "./utils.js";
 
 const CLICKS_FOR_DESKTOP = 3;
 const CLICKS_FOR_TABLET = 6;
@@ -101,5 +101,5 @@ export function slider() {
 
     leftButton.addEventListener('click', moveToLeft);
     rightButton.addEventListener('click', moveToRight);
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', debouncedHandleResize);
 }

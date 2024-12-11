@@ -1,7 +1,8 @@
-import {mediaQuery} from "./utils.js";
+import {debounce, mediaQuery} from "./utils.js";
 
 const TO_TOP_BUTTON_THRESHOLD = 300;
 const toTopButton = document.querySelector(".btn_to-top");
+const debouncedShowToTopButton = debounce(showToTopButton);
 
 function showToTopButton() {
     toTopButton.classList.toggle('btn_to-top--visible', window.scrollY > TO_TOP_BUTTON_THRESHOLD);
@@ -15,6 +16,6 @@ function toggleScrollBtnDisplay(e) {
 export function scrollToTop() {
     toggleScrollBtnDisplay(mediaQuery)
     mediaQuery.addEventListener('change', toggleScrollBtnDisplay)
-    window.addEventListener('scroll', showToTopButton);
+    window.addEventListener('scroll', debouncedShowToTopButton);
     toTopButton.addEventListener('click', () => window.scrollTo(0, 0));
 }
