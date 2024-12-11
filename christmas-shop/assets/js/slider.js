@@ -9,22 +9,15 @@ const NORMAL_PADDING = 82;
 const sliderElement = document.querySelector('.slider');
 const [leftButton, rightButton] = document.querySelectorAll('.btn_arrow');
 let sliderOffset = 0;
-let buttonDisabled = 'left';
+let disabledButtonState = 'left';
+const debouncedHandleResize = debounce(handleResize);
 
 function getClickAmount(screenWidth) {
-    if (screenWidth > TABLET_WIDTH) {
-        return CLICKS_FOR_DESKTOP
-    }
-
-    return CLICKS_FOR_TABLET;
+    return screenWidth > TABLET_WIDTH ? CLICKS_FOR_DESKTOP : CLICKS_FOR_TABLET;
 }
 
 function getPadding(screenWidth) {
-    if (screenWidth > SMALL_PADDING_WIDTH) {
-        return NORMAL_PADDING
-    }
-
-    return SMALL_PADDING;
+    return screenWidth > SMALL_PADDING_WIDTH ? NORMAL_PADDING : SMALL_PADDING;
 }
 
 function getMaxOffset() {
@@ -39,19 +32,17 @@ function getSliderOffsetStep(maxOffset) {
     return (maxOffset + padding) / clickAmount;
 }
 
-function setButtonDisabled(button, bool, direction = '') {
-    buttonDisabled = bool ? direction : bool;
-    button.disabled = bool;
+function setButtonDisabled(button, isDisabled, direction = '') {
+    disabledButtonState = direction ? direction : isDisabled;
+    button.disabled = isDisabled;
 }
 
 function updateSliderPosition() {
     sliderElement.style.left = `${sliderOffset}px`;
 }
 
-function moveSlider() {
-    const direction = this;
-
-    if (direction === buttonDisabled) {
+function moveSlider(direction) {
+    if (direction === disabledButtonState) {
         return
     }
 
@@ -66,22 +57,23 @@ function moveSlider() {
         },
     }
 
-    if (buttonDisabled) {
-        setButtonDisabled(directionSettings[buttonDisabled].button, false)
+    const { multiplier, button } = directionSettings[direction];
+
+    if (disabledButtonState) {
+        setButtonDisabled(directionSettings[disabledButton].button, false)
     }
 
     let maxOffset = getMaxOffset();
 
-    sliderOffset += getSliderOffsetStep(maxOffset) * directionSettings[direction].multiplier;
+    sliderOffset += getSliderOffsetStep(maxOffset) * multiplier;
 
     if (sliderOffset >= 0) {
         sliderOffset = 0;
-        setButtonDisabled(directionSettings[direction].button, true, direction)
+        setButtonDisabled(button, true, direction)
 
-    }
-    if (sliderOffset <= -maxOffset) {
+    } else if (sliderOffset <= -maxOffset) {
         sliderOffset = -maxOffset;
-        setButtonDisabled(directionSettings[direction].button, true, direction)
+        setButtonDisabled(button, true, direction)
     }
 
     updateSliderPosition()
@@ -95,11 +87,7 @@ function handleResize() {
 }
 
 export function slider() {
-
-    const moveToLeft = moveSlider.bind('left');
-    const moveToRight = moveSlider.bind('right');
-
-    leftButton.addEventListener('click', moveToLeft);
-    rightButton.addEventListener('click', moveToRight);
+    leftButton.addEventListener('click', () => moveSlider('left'));
+    rightButton.addEventListener('click', () => moveSlider('right'));
     window.addEventListener('resize', debouncedHandleResize);
 }
