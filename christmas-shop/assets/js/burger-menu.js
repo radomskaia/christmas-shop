@@ -3,11 +3,13 @@ const ACTIVE_CLASS = "btn_burger--active";
 
 const burgerButton = document.querySelector(".btn_burger");
 const navigation = document.querySelector(".nav");
+let isOpen = false;
 
 function switchMobileNav() {
+    isOpen = !isOpen;
     burgerButton.classList.toggle(ACTIVE_CLASS);
 
-    if (burgerButton.classList.contains(ACTIVE_CLASS)) {
+    if (isOpen) {
         window.scrollTo(0, 0)
     }
 }
@@ -15,6 +17,7 @@ function switchMobileNav() {
 function closeMobileNavDesktop(e) {
     if (!e.matches) {
         burgerButton.classList.remove(ACTIVE_CLASS);
+        isOpen = false
     }
 }
 
