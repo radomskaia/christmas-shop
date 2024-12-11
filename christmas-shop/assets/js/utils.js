@@ -9,30 +9,23 @@ export const cardCategory = {
     'For Harmony': 'card-harmony',
 }
 
-export function createDOMElement(option) {
-    let {
-        tagName = 'div',
-        appendParent = null,
-        classList = '',
-        textContent = '',
-        attributes = {},
-
-    } = option;
+export function createDOMElement({
+                                     tagName = 'div',
+                                     classList = '',
+                                     textContent = '',
+                                     attributes = {},
+                                 } = {}) {
     const element = document.createElement(tagName);
-    if (appendParent) appendParent.append(element);
-    if (classList) {
-        classList = classList.split(" ");
-        classList.forEach(newClass => {
-                element.classList.add(newClass)
-            }
-        );
+    if (classList.trim()) {
+       element.classList.add(...classList.split(' '));
     }
     if (textContent) {
         element.textContent = textContent;
     }
-    for (const [key, value] of Object.entries(attributes)) {
-        element.setAttribute(key, value);
+    if (attributes) {
+        Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value))
     }
+
     return element;
 }
 
