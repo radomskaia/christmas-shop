@@ -49,7 +49,7 @@
         pointer-events: none;
         visibility: hidden;
 
-        transition: transform 0.3s;
+        transition: transform 0.3s, visibility 0.3s;
 
         .nav_list {
             flex-direction: column;
