@@ -1,29 +1,33 @@
-import {mediaQuery} from "./utils.js";
+import { mediaQuery } from "./utils.js";
+
 const ACTIVE_CLASS = "btn_burger--active";
 
 const burgerButton = document.querySelector(".btn_burger");
 const navigation = document.querySelector(".nav");
+let isOpen = false;
 
 function switchMobileNav() {
-    burgerButton.classList.toggle(ACTIVE_CLASS);
+  isOpen = !isOpen;
+  burgerButton.classList.toggle(ACTIVE_CLASS);
 
-    if (burgerButton.classList.contains(ACTIVE_CLASS)) {
-        window.scrollTo(0, 0)
-    }
+  if (isOpen) {
+    window.scrollTo(0, 0);
+  }
 }
 
 function closeMobileNavDesktop(e) {
-    if (!e.matches) {
-        burgerButton.classList.remove(ACTIVE_CLASS);
-    }
+  if (!e.matches) {
+    burgerButton.classList.remove(ACTIVE_CLASS);
+    isOpen = false;
+  }
 }
 
 export function burgerMenu() {
-    burgerButton.addEventListener("click", switchMobileNav);
-    navigation.addEventListener("click", (e) => {
-        if (e.target.classList.contains("link_nav")) {
-            switchMobileNav();
-        }
-    });
-    mediaQuery.addEventListener("change", closeMobileNavDesktop)
+  burgerButton.addEventListener("click", switchMobileNav);
+  navigation.addEventListener("click", (e) => {
+    if (e.target.classList.contains("link_nav")) {
+      switchMobileNav();
+    }
+  });
+  mediaQuery.addEventListener("change", closeMobileNavDesktop);
 }
