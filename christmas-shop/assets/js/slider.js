@@ -60,7 +60,7 @@ function moveSlider(direction) {
     const { multiplier, button } = directionSettings[direction];
 
     if (disabledButtonState) {
-        setButtonDisabled(directionSettings[disabledButton].button, false)
+        setButtonDisabled(directionSettings[disabledButtonState].button, false)
     }
 
     let maxOffset = getMaxOffset();
