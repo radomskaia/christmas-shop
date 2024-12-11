@@ -1,31 +1,28 @@
-
-import {svgSpritemap} from 'vite-plugin-svg-spritemap';
-import postcssImport from 'postcss-import';
-import {resolve} from 'path'
-import {defineConfig} from 'vite'
+import { svgSpritemap } from "vite-plugin-svg-spritemap";
+import postcssImport from "postcss-import";
+import { resolve } from "path";
+import { defineConfig } from "vite";
 
 export default defineConfig({
-    // base: '/radomskaia-JSFE2024Q4/christmas-shop',
-    base: '/',
-    build: {
-        sourcemap: true,
-        rollupOptions: {
-            input: {
-                main: resolve(__dirname, 'index.html'),
-                nested: resolve(__dirname, 'gifts/index.html'),
-            },
-        },
-        cssCodeSplit: false,
+  base: "./",
+  build: {
+    sourcemap: true,
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, "index.html"),
+        nested: resolve(__dirname, "gifts/index.html"),
+      },
     },
-    css: {
-        postcss: {
-            plugins: [postcssImport()],
-        },
+    cssCodeSplit: false,
+  },
+  css: {
+    postcss: {
+      plugins: [postcssImport()],
     },
-    plugins: [
-        svgSpritemap({
-            pattern: 'assets/icons/*.svg',
-        }),
-    ]
-})
-
+  },
+  plugins: [
+    svgSpritemap({
+      pattern: "assets/icons/*.svg",
+    }),
+  ],
+});
