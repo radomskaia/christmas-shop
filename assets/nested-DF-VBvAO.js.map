@@ -1,0 +1,1 @@
+{"version":3,"file":"nested-DF-VBvAO.js","sources":["../../gifts/gifts.js"],"sourcesContent":["import {init} from \"../assets/js/app.js\";\n\ninit('gifts')\n"],"names":["init"],"mappings":"iCAEAA,EAAK,OAAO"}

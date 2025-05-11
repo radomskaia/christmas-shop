@@ -1,8 +1,0 @@
-.main:has(.gifts-page) {
-    background: var(--primary);
-}
-
-.gifts-page .header_1 {
-    max-width: var(--width-text);
-    text-align: center;
-}
