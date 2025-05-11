@@ -41,7 +41,9 @@ function updateTimer(finalDate) {
 }
 
 export function timer() {
-  const NYDate = new Date("2025-01-01T00:00:00.000Z").getTime();
+  const now = new Date();
+  const nextYear = now.getFullYear() + 1;
+  const NYDate = new Date(`${nextYear}-01-01T00:00:00.000Z`).getTime();
   updateTimer(NYDate);
   timerIntervalId = setInterval(updateTimer, 1000, NYDate);
 }
